@@ -23,6 +23,7 @@ add_executable(fuzzer_engine
     engine/crash_detector.cpp
     engine/mutator_api.cpp
     ui/text_ui.cpp
+    ui/gui_ui.cpp
 )
 
 target_link_libraries(fuzzer_engine

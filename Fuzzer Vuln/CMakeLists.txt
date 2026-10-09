@@ -11,8 +11,10 @@ enable_testing()
 # Add subdirectories
 add_subdirectory(src)
 
-# Add tests
-add_subdirectory(tests)
+# Add tests (optional — only if the tests/ directory is present)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tests/CMakeLists.txt")
+    add_subdirectory(tests)
+endif()
 
 # Install targets
 install(TARGETS fuzzer_engine DESTINATION bin)
