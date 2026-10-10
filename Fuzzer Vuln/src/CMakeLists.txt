@@ -31,3 +31,9 @@ target_link_libraries(fuzzer_engine
     mutators
     # Add other libraries like pthread, etc.
 )
+
+# Alvo de exemplo para fuzzing. Precisa linkar a lib de instrumentação
+# (usa init_instrumentation/instrument_basic_block) — antes não compilava sozinho.
+add_executable(example_target ../example_target.c)
+target_include_directories(example_target PRIVATE instrumentation)
+target_link_libraries(example_target instrumentation)
